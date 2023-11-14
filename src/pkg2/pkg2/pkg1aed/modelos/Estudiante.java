@@ -20,5 +20,10 @@ public class Estudiante extends Alumnado {
     public void setFechaMatricula(Fecha fechaMatricula) {
         this.fechaMatricula = fechaMatricula;
     }
+    
+    @Override
+    public String toString() {
+        return String.format(" Fecha Matrícula: %02d/%02d/%04d",fechaMatricula.getDia(), fechaMatricula.getMes(), fechaMatricula.getAnno());
+    }
 
 }

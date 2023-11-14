@@ -4,6 +4,8 @@ package pkg2.pkg2.pkg1aed;
 import java.io.IOException;
 import java.util.List;
 import pkg2.pkg2.pkg1aed.modelos.Estudiante;
+import pkg2.pkg2.pkg1aed.utils.EstudianteWriter;
+import pkg2.pkg2.pkg1aed.utils.ImpresorEstudiantes;
 import pkg2.pkg2.pkg1aed.utils.LectorFicheroCSV;
 
 
@@ -17,16 +19,9 @@ public class Main {
             
             List<Estudiante> listaEstudiantesCSV = LectorFicheroCSV.crearEstudiantes(datosCSV);
             
-            for (Estudiante estudiante : listaEstudiantesCSV) {
-                System.out.println(estudiante.getNombre()+"\n");
-                System.out.println(estudiante.getDni()+"\n");
-                System.out.println(estudiante.getEdad()+"\n");
-                
-                System.out.println(estudiante.getFechaMatricula().getDia()+"/"+
-                                        estudiante.getFechaMatricula().getMes()+"/"+
-                                            estudiante.getFechaMatricula().getAnno()+"\n");
-                
-            }
+            System.out.println(ImpresorEstudiantes.imprimirEstudiantes(listaEstudiantesCSV));
+            
+            EstudianteWriter.escribirEstudiantesEnArchivo(listaEstudiantesCSV, "src\\recursos\\alumnado.dat");
             
         }catch(IOException e){
             e.printStackTrace();
